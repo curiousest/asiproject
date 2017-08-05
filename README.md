@@ -10,7 +10,7 @@
 
 * Backend setup, writing unit tests, writing app: ~45min
 * Frontend getting react running/building: ~30min
-* Frontend writing react: ~2hrs
+* Frontend writing react: ~2hrs (second time trying react - first time was using react-native: (https://github.com/curiousest/react-explore)[https://github.com/curiousest/react-explore])
 
 # Build next
 
