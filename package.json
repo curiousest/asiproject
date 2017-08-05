@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --port 5000 --content-base react --watch"
+    "start": "webpack-dev-server --port 5000 --content-base reactjs --watch"
   },
   "author": "",
   "license": "ISC",
@@ -22,6 +22,6 @@
     "webpack-html-plugin": "^0.1.1"
   },
   "devDependencies": {
-    "babel-preset-react": "^6.11.1"
+    "babel-preset-react": "^6.24.1"
   }
 }
