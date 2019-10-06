@@ -1,22 +1,33 @@
-# Setup
+# Interpretation of specs
 
-* Requires npm and docker-compose and docker installed
-* Build: `make build`
-* Test: `make test`
-* Run: `make run`, browse to (http://localhost:5000/index.html)[http://localhost:5000/index.html]
-* Stop: ctrl+c and `docker-compose stop -t0`
+## Cache is entirely in memory
 
-# Time to build
+With the current implementation, the value can be modified outside of the cache, because it's a pointer to an object in memory, and others have access to the same pointer to the object in memory. The value could be serialized with something like `pickle.dumps`, should we need to add a new requirement like, "make a deep copy of the value at time of cache write" or if we choose to use a different cache persistence.
 
-* Backend setup, writing unit tests, writing app: ~45min
-* Frontend getting react running/building: ~30min
-* Frontend writing react: ~2hrs (second time trying react - first time was using react-native: (https://github.com/curiousest/react-explore)[https://github.com/curiousest/react-explore])
+## Design the interface as a library
 
-# Build next
+pip install is acceptable
 
-* Styling is obviously not accurate
-* Add a "Get Repositories" button?
-* BDD against https://github.com/ASIDataScience/full-stack-engineer-coding-challenge#user-story
+## Provide a way for any alternative replacement algorithm to be used
 
+If the alternative replacement algorithm needs radically different data, a major version change and refactor is acceptable. Ex 1: if the whole history of cache reads is required. Ex 2: if the keys are required for the replacement algorithm.
 
-![screenshot](screenshot.png)
+# Build/Test
+
+1. Have a version of python3 installed.
+2. Install pytest.
+3. Change directory to the set-associative-cache folder and run: `py.test`.
+
+Example:
+
+```
+> py.test
+============================= test session starts ==============================
+platform linux -- Python 3.5.2, pytest-3.1.2
+rootdir: /home/douglas/workspace/set-associative-cache, inifile:
+collected 13 items 
+
+app_test.py .............
+
+========================== 13 passed in 0.08 seconds ===========================
+```
